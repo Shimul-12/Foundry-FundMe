@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.18;
 
-import {Test , console} from "forge-std/Test.sol";
+import {Test, console} from "forge-std/Test.sol";
 import {FundMe} from "../../src/Fundme.sol";
 import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 
@@ -82,10 +82,7 @@ contract FundmeTest is Test {
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
 
         assertEq(endingFundMeBalance, 0);
-        assertEq(
-            startingFundMeBalance + startingOwnerBalance,
-            endingOwnerBalance
-        );
+        assertEq(startingFundMeBalance + startingOwnerBalance, endingOwnerBalance);
     }
 
     function testWithdrawFrommultipleFunderscheaper() public funded {
@@ -115,10 +112,7 @@ contract FundmeTest is Test {
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
 
         assertEq(endingFundMeBalance, 0);
-        assertEq(
-            startingFundMeBalance + startingOwnerBalance,
-            endingOwnerBalance
-        );
+        assertEq(startingFundMeBalance + startingOwnerBalance, endingOwnerBalance);
     }
 
     function testWithdrawFrommultipleFunders() public funded {
@@ -148,10 +142,7 @@ contract FundmeTest is Test {
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
 
         assertEq(endingFundMeBalance, 0);
-        assertEq(
-            startingFundMeBalance + startingOwnerBalance,
-            endingOwnerBalance
-        );
+        assertEq(startingFundMeBalance + startingOwnerBalance, endingOwnerBalance);
     }
 
     // Types of tests--
@@ -164,4 +155,3 @@ contract FundmeTest is Test {
 
     // 4. Staging tests --> Testing on a testnet(like sepolia)
 }
- 

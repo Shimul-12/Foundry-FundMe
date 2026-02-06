@@ -64,11 +64,12 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
 # Foundry Fund Me
 
 This is a section of the Cyfrin Solidity Course.
 
-*[⭐️ Updraft | Foundry Fund Me](https://updraft.cyfrin.io/courses/foundry/foundry-fund-me/fund-me-project-setup)*
+_[⭐️ Updraft | Foundry Fund Me](https://updraft.cyfrin.io/courses/foundry/foundry-fund-me/fund-me-project-setup)_
 
 # About
 
@@ -97,7 +98,6 @@ This is a minimal project allowing users to fund the contract owner with donatio
   - [Summary](#summary)
 - [Thank you!](#thank-you)
 
-
 # Getting Started
 
 ## Requirements
@@ -107,14 +107,13 @@ This is a minimal project allowing users to fund the contract owner with donatio
 - [foundry](https://getfoundry.sh/)
   - You'll know you did it right if you can run `forge --version` and you see a response like `forge 0.2.0 (816e00b 2023-03-16T00:05:26.396218Z)`
 
-
 ## Quickstart
 
 ```
-git clone https://github.com/Cyfrin/foundry-fund-me-cu
-cd foundry-fund-me-cu
+git clone https://github.com/Shimul-12/Foundry-FundMe.git
 make
 ```
+
 # Usage
 
 ## Deploy
@@ -125,26 +124,25 @@ forge script script/DeployFundMe.s.sol
 
 ## Testing
 
-We talk about 4 test tiers in the video. 
+We talk about 4 test tiers in the video.
 
 1. Unit
 2. Integration
 3. Forked
 4. Staging
 
-This repo we cover #1 and #3. 
-
+This repo we cover #1 and #3.
 
 ```
 forge test
 ```
 
-or 
+or
 
 ```
 // Only run test functions matching the specified regex pattern.
 
-"forge test -m testFunctionName" is deprecated. Please use 
+"forge test -m testFunctionName" is deprecated. Please use
 
 forge test --match-test testFunctionName
 ```
@@ -160,55 +158,6 @@ forge test --fork-url $SEPOLIA_RPC_URL
 ```
 forge coverage
 ```
-
-## Local zkSync 
-
-The instructions here will allow you to work with this repo on zkSync.
-
-### (Additional) Requirements 
-
-In addition to the requirements above, you'll need:
-- [foundry-zksync](https://github.com/matter-labs/foundry-zksync)
-  - You'll know you did it right if you can run `forge --version` and you see a response like `forge 0.0.2 (816e00b 2023-03-16T00:05:26.396218Z)`. 
-- [npx & npm](https://docs.npmjs.com/cli/v10/commands/npm-install)
-  - You'll know you did it right if you can run `npm --version` and you see a response like `7.24.0` and `npx --version` and you see a response like `8.1.0`.
-- [docker](https://docs.docker.com/engine/install/)
-  - You'll know you did it right if you can run `docker --version` and you see a response like `Docker version 20.10.7, build f0df350`.
-  - Then, you'll want the daemon running, you'll know it's running if you can run `docker --info` and in the output you'll see something like the following to know it's running:
-```bash
-Client:
- Context:    default
- Debug Mode: false
-```
-### Setup local zkSync node 
-
-Run the following:
-
-```bash
-npx zksync-cli dev config
-```
-
-And select: `In memory node` and do not select any additional modules.
-
-Then run:
-```bash
-npx zksync-cli dev start
-```
-And you'll get an output like:
-```
-In memory node started v0.1.0-alpha.22:
- - zkSync Node (L2):
-  - Chain ID: 260
-  - RPC URL: http://127.0.0.1:8011
-  - Rich accounts: https://era.zksync.io/docs/tools/testing/era-test-node.html#use-pre-configured-rich-wallets
-```
-### Deploy to local zkSync node
-
-```bash
-make deploy-zk
-```
-
-This will deploy a mock price feed and a fund me contract to the zkSync node.
 
 # Deployment to a testnet or mainnet
 
@@ -234,15 +183,16 @@ forge script script/DeployFundMe.s.sol --rpc-url $SEPOLIA_RPC_URL --private-key 
 
 ## Scripts
 
-After deploying to a testnet or local net, you can run the scripts. 
+After deploying to a testnet or local net, you can run the scripts.
 
-Using cast deployed locally example: 
+Using cast deployed locally example:
 
 ```
 cast send <FUNDME_CONTRACT_ADDRESS> "fund()" --value 0.1ether --private-key <PRIVATE_KEY>
 ```
 
 or
+
 ```
 forge script script/Interactions.s.sol:FundFundMe --rpc-url sepolia  --private-key $PRIVATE_KEY  --broadcast
 forge script script/Interactions.s.sol:WithdrawFundMe --rpc-url sepolia  --private-key $PRIVATE_KEY  --broadcast
@@ -264,11 +214,10 @@ forge snapshot
 
 And you'll see an output file called `.gas-snapshot`
 
-
 # Formatting
 
-
 To run code formatting:
+
 ```
 forge fmt
 ```
